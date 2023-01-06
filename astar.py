@@ -95,7 +95,6 @@ def h(p1, p2):
     return abs(x1 - x2) + abs(y1 - y2)
 
 def algorithm (draw, grid, start, end):
-    draw ()
     count = 0
     open_set = PriorityQueue()
     open_set.put((0, count, start))
@@ -132,6 +131,8 @@ def algorithm (draw, grid, start, end):
                     open_set.put((f_score[neighbor], count, neighbor))
                     open_set_hash.add(neighbor)
                     neighbor.make_open()          
+
+        draw()
 
         if current != start:
             current.make_closed()
