@@ -47,7 +47,7 @@ class Node:
         return self.color == TURQUOISE
 
     def reset(self):
-        self.color == WHITE
+        self.color = WHITE
 
     def make_start(self):
         self.color = ORANGE
@@ -166,7 +166,7 @@ def main (win, width):
                     start = None
                 elif node == end:
                     end = None
-                    
+
     pygame.quit()
 
 main(WIN, WIDTH)
