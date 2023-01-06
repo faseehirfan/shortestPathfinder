@@ -80,3 +80,37 @@ def h(p1, p2):
     x2, y2 = p2
     return abs(x1 - x2) + abs(y1 - y2)
 
+
+def make_grid(rows, width):
+    grid = []
+
+    gap = width // rows    #integer division of width by rows will give us the width of the cubes. 
+
+    for i in range(rows):
+        grid.append([])
+        for j in range(rows):
+            node = Node(i,j, gap, rows)
+            grid[i].append(node)
+
+    return grid
+
+def draw_grid(win, rows, width):
+    gap = width // rows
+    for i in range(rows):
+        pygame.draw.line(win, GREY, (0, i*gap), (width, i * gap))
+    for i in range(rows):
+        pygame.draw.line(win, GREY, (i * gap, 0), (i * gap, width))
+
+def draw(win, grid, rows, width):
+    win.fill(WHITE)
+    for row in grid:
+        for spot in row:
+            spot.draw(win)
+
+    draw_grid(win, rows, width)
+    pygame.display.update()
+
+
+
+
+
