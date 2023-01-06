@@ -1,4 +1,5 @@
 import pygame
+import time
 import math
 from queue import PriorityQueue
 
@@ -99,6 +100,7 @@ def reconst_path (came_from, current, draw):
         current = came_from[current]
         current.make_path()
         draw()
+        time.sleep(0.1)
         
 
 def algorithm (draw, grid, start, end):
@@ -125,6 +127,7 @@ def algorithm (draw, grid, start, end):
         if current == end:
             reconst_path(came_from, end, draw)
             end.make_end()
+            start.make_start()
             return True
 
         for neighbor in current.neighbors:
