@@ -225,7 +225,7 @@ def main (win, width):
                 if event.key == pygame.K_SPACE and not started:
                     for row in grid:
                         for node in row:
-                            node.update_neighbors()
+                            node.update_neighbors(grid)
                     algorithm(lambda: draw(win, grid, ROWS, WIDTH), grid, start, end)
     pygame.quit()
 
